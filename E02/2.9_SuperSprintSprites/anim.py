@@ -9,6 +9,9 @@ a = 0
 x, y = ARENA_W / 2, ARENA_H / 2
 
 def check_bounds():
+    '''
+    Check if the car is within the arena bounds and adjust its position if necessary.
+    '''
     global x, y, a
     if x < 0:
         x = 0
@@ -20,6 +23,9 @@ def check_bounds():
         y = ARENA_H - CARSIZE
 
 def checkMouse():
+    '''
+    Check if the mouse is clicked and adjust the car's angle based on the mouse position.
+    '''
     global a
     if g.mouse_clicked():
         (mx, my) = g.mouse_pos()
@@ -29,12 +35,18 @@ def checkMouse():
             a -= 90 / 8
 
 def drawBg(level: int):
+    '''
+    Draw the background based on the current level.
+    '''
     if level > 4:
         g.draw_image("super-sprint-bg.png", (0, 0), (ARENA_W * (level - 4), ARENA_H), (ARENA_W, ARENA_H))
     else:
         g.draw_image("super-sprint-bg.png", (0, 0), (ARENA_W * level, 0), (ARENA_W, ARENA_H))
 
-def carUpdate(x, y, a ):
+def carUpdate(x: float, y: float, a: float):
+    '''
+    Update the car's position and orientation.
+    '''
     clip_pos = (0, 0)
     clip_size = (CARSIZE, CARSIZE)
 
@@ -49,6 +61,9 @@ def carUpdate(x, y, a ):
     g.draw_image("super-sprint.png", (x,y), clip_pos, clip_size)
 
 def tick():
+    '''
+    Main game loop tick function that updates the game state and renders the frame.
+    '''
     global x, y, a, v
     g.clear_canvas()
 
