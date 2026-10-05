@@ -9,7 +9,9 @@ def cylinderVolume(radius: float, height: float) -> float :
     return pi*(radius**2)*height
 
 def main():
-    r = float(input("insert the radius value"))
-    h = float(input("insert the height value"))
+    r = float(input("insert the radius value: "))
+    h = float(input("insert the height value: "))
     cylinder_volume = cylinderVolume(r, h)
     print("the cylinder's volume is " + str(cylinder_volume))
+
+main()
