@@ -1,3 +1,5 @@
+import math as mt
+
 class Triangle:
     def __init__(self, leg1, leg2, leg3):
         if leg1 <= 0 or leg2 <= 0 or leg3 <= 0:
@@ -13,7 +15,7 @@ class Triangle:
 
     def getArea(self):
         s = self.getPerimeter() / 2
-        area = (s * (s - self.leg1) * (s - self.leg2) * (s - self.leg3)) ** 0.5
+        area = mt.sqrt(s * (s - self.leg1) * (s - self.leg2) * (s - self.leg3))
         return area
 
 def main():
