@@ -15,7 +15,7 @@ class Triangle:
 
     def getArea(self):
         s = self.getPerimeter() / 2
-        area = mt.sqrt(s * (s - self.leg1) * (s - self.leg2) * (s - self.leg3))
+        area = mt.sqrt(s * (s - self.leg1) * (s - self.leg2) * (s - self.leg3)) # Formula di Erone per l'area 
         return area
 
 def main():
