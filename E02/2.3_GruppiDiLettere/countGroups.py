@@ -19,6 +19,6 @@ def main():
         if inputString != "":
             letterNumbers = count_groups(inputString)
             
-            print("Letters from A to M: " + str(letterNumbers[0]) + "\nLetters from N to Z: " + str(letterNumbers[1]))
+            print(f"\tLetters from A to M: {letterNumbers[0]}\n\tLetters from N to Z: {letterNumbers[1]}")
 
 main()

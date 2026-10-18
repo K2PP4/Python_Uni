@@ -25,8 +25,8 @@ def main():
         else:
             underAvg.append(n)
 
-    print("Average value: " + str(avg))
-    print("Values bigger or equal to the average: " + str(higherAvg))
-    print("Values smaller than the average: " + str(underAvg))
+    print(f"Average value: {avg}")
+    print(f"Values bigger or equal to the average: {higherAvg}")
+    print(f"Values smaller than the average: {underAvg}")
 
 main()
