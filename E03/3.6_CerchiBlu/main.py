@@ -19,7 +19,7 @@ SIZE = 50
 PADDING = 25
 
 def main():
-  n_cerchi = int(input("Quanti cerchi? "))
+  n_cerchi = int(input("How many circles?: "))
   g.init_canvas(CANVASSIZE)
   
   usable_w = CANVASW - (2 * PADDING)
