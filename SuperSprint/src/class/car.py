@@ -5,7 +5,7 @@ class Car:
         self._size = (16,16)
         self._speed = 4
         self._angle = 0.0
-        self._angle_inc = ANGLE_INC
+        self._angle_inc = 90/8
         self._frame = 0
 
     def move(self):
@@ -22,6 +22,10 @@ class Car:
     def pos(self) -> tuple[int, int]:
         return self._pos
 
+    def _clamp(v, vmin, vmax):
+        return min(max(v, vmin), vmax)
+
+
     def sprite(self) -> tuple[str, tuple[int, int], tuple[int, int]]:
         spriteAngle = 360 - (self._angle % 360)
         dirIndex = (int(spriteAngle * 4) // 45) % 32
@@ -35,4 +39,4 @@ class Car:
         clipX = (colorXBlock * 8 + dirCol) * 16
         clipY = (colorYBlock * 4 + dirRow) * 16
 
-        return SPRITE_URL, (clipX, clipY), self._size
+        return "super-sprint.png", (clipX, clipY), self._size

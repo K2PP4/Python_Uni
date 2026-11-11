@@ -38,13 +38,6 @@ class InternalWall(CurvedWall):  # repel cars from center
     def confirm_collision(self, other: Actor) -> bool:
         return dist(self.center(), actor_center(other)) < self.radius()
 
-class Car(Actor):  # …
-    def move(self, arena):
-        for other in arena.collisions():
-            if isinstance(other, ExternalWall) and other.confirm_collision(self):
-                # …
-                pass
-
 def load_walls(filename) -> list[str]:
     walls = []
     with open(filename) as file:
