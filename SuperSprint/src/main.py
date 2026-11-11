@@ -1,6 +1,6 @@
 from lib.g2d import init_canvas, main_loop
-from func.movement import tick
-from .enum.arenasize import Arena_size
+from func.tick import tick
+from enums.arenasize import Arena_size
 
 def main():
     init_canvas(Arena_size.dim.value)
