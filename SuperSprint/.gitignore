@@ -1,0 +1,23 @@
+# === Ambienti Virtuali ===
+.venv/
+venv/
+ENV/
+
+# === Cache Python e Bytecode ===
+__pycache__/
+*.py[cod]
+*$py.class
+
+# === IDE & Editor ===
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# === File di Sistema ===
+.DS_Store
+Thumbs.db
+
+# === Cache varie ===
+CACHEDIR.TAG
+.pytest_cache/

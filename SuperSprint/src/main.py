@@ -1,7 +1,11 @@
-ARENA_H, ARENA_W = 500, 500
-ARENA_SIZE = (ARENA_W, ARENA_H)
+from lib.g2d import init_canvas, main_loop
+from func.tick import tick
+from enums.arenasize import Arena_size
 
 def main():
-    return 0
+    init_canvas(Arena_size.dim.value)
+    main_loop(tick())
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    print("main file started")
+    main()
