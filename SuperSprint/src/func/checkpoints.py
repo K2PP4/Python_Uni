@@ -2,19 +2,16 @@ from math import dist
 from lib.actor import Point
 
 class Checkpoint:
-    """Rappresenta un checkpoint circolare lungo il tracciato."""
     def __init__(self, x: float, y: float, radius: float = 36.0, name: str = ""):
         self.x = x
         self.y = y
         self.radius = radius
         self.name = name
 
-    @property
     def pos(self) -> Point:
         return (self.x, self.y)
 
     def contains(self, pt: Point) -> bool:
-        """Verifica se il punto specificato cade all'interno del raggio del checkpoint."""
         return dist((self.x, self.y), pt) <= self.radius
 
 
@@ -37,7 +34,6 @@ CIRCUIT_1_CHECKPOINTS = [
 
 
 class CheckpointManager:
-    """Gestisce la sequenza dei checkpoint, la validazione dei giri e la classifica."""
     def __init__(self, checkpoints: list[Checkpoint] = None, target_laps: int = 3):
         self._checkpoints = checkpoints if checkpoints is not None else list(CIRCUIT_1_CHECKPOINTS)
         self._target_laps = target_laps
@@ -57,10 +53,6 @@ class CheckpointManager:
         return list(self._checkpoints)
 
     def update_car(self, car) -> bool:
-        """
-        Verifica se l'auto ha attraversato il suo prossimo checkpoint atteso.
-        Ritorna True se un nuovo checkpoint è stato convalidato.
-        """
         target_idx = car.target_checkpoint_index
         target_cp = self._checkpoints[target_idx]
         car_center = car.center
@@ -71,12 +63,6 @@ class CheckpointManager:
         return False
 
     def rank_cars(self, cars: list) -> list:
-        """
-        Ordina le auto in base alla progressione di gara:
-        1. Giri completati (decrescente)
-        2. Checkpoint totali superati (decrescente)
-        3. Minore distanza dal prossimo checkpoint atteso (crescente)
-        """
         def rank_key(car):
             target_cp = self.get_checkpoint(car.target_checkpoint_index)
             d = dist(car.center, target_cp.pos)
