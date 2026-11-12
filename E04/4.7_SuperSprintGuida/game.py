@@ -84,7 +84,7 @@ arena = Arena(ARENA_SIZE)
 
 def tick():
     g.clear_canvas()
-    arena.tick()
+    arena.tick(g.current_keys())
 
     img_src, clip_pos, clip_size = yellow_car.sprite()
     g.draw_image(img_src, yellow_car.pos(), clip_pos, clip_size)
